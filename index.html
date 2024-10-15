@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Racket Blitz - Online Pong Game 🏓</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Racket Blitz 🏓</h1>
+        <div id="start-screen">
+            <button id="one-player-btn">1 Player</button>
+            <button id="two-player-btn">2 Players</button>
+            <button id="tutorial-btn">Tutorial</button>
+        </div>
+        <div id="difficulty-screen">
+            <h2>Select Difficulty</h2>
+            <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+            <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+            <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+        </div>
+        <div id="start-game-screen">
+            <button id="start-game-btn">Start Game</button>
+        </div>
+        <div id="scoreboard">
+            <div id="player1-score">0</div>
+            <div id="player2-score">0</div>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="mobile-controls">
+            <div class="left-controls">
+                <button id="left-up">🔼</button>
+                <button id="left-down">🔽</button>
+            </div>
+            <div class="right-controls">
+                <button id="right-up">🔼</button>
+                <button id="right-down">🔽</button>
+            </div>
+        </div>
+        <div id="game-over-screen">
+            <h2 id="winner-text"></h2>
+            <button id="restart-btn">Restart</button>
+        </div>
+        <!-- Tutorial Modal -->
+        <div id="tutorial-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>How to Play</h2>
+                <p>
+                    Welcome to Racket Blitz 🏓<br><br>
+                    <strong>Objective:</strong> Be the first to reach 5 points by hitting the ball past your opponent's paddle.<br><br>
+                    <strong>Controls:</strong><br>
+                    <u>Player 1 (Left Paddle):</u> W (Up), S (Down)<br>
+                    <u>Player 2 (Right Paddle):</u> Up Arrow (Up), Down Arrow (Down)<br><br>
+                    On mobile devices, use the on-screen buttons.<br><br>
+                    <strong>Game Modes:</strong><br>
+                    - 1 Player: Play against the computer with selectable difficulty levels.<br>
+                    - 2 Players: Play against a friend.<br><br>
+                    <strong>Power-Ups:</strong><br>
+                    - 🛡️ Shield: Increase your paddle size temporarily.<br>
+                    - ⚡ Lightning: Increase your paddle speed temporarily.<br>
+                    - ❌ Shrink: Decrease opponent's paddle size temporarily.<br><br>
+                    Good luck and have fun!
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>JG 2024 &copy; vBeta 1.0</p>
+        <p><a href="https://buymeacoffee.com/georgegeorge" target="_blank">Buy me a coffee ☕</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
