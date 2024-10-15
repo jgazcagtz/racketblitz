@@ -112,12 +112,21 @@ button:active {
     border: 2px solid #fff;
     background-color: #000;
     box-shadow: 0 0 20px #fff;
+    width: 100%;
+    height: auto;
 }
 
 /* Mobile Controls */
 #mobile-controls {
     display: none;
     margin-top: 20px;
+    justify-content: space-around;
+}
+
+.left-controls,
+.right-controls {
+    display: flex;
+    flex-direction: column;
 }
 
 #mobile-controls button {
@@ -247,34 +256,7 @@ footer a:hover {
         height: auto;
     }
 
-    #mobile-controls {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .left-controls,
-    .right-controls {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* Adjust font size for mobile */
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    button {
-        font-size: 0.8rem;
-        padding: 10px 20px;
-    }
-
-    #scoreboard {
-        font-size: 1.5rem;
-    }
-
-    #game-over-screen h2 {
-        font-size: 1.5rem;
-    }
+    /* Mobile controls are now handled via JavaScript */
 }
 
 /* Additional Mobile Styles */
