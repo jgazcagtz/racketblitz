@@ -1,0 +1,301 @@
+/* General Styles */
+body {
+    margin: 0;
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e); /* Original background */
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Game Container */
+#game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    animation: glow 1s infinite alternate;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* Glow Animation for Title */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    }
+}
+
+/* Buttons */
+button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #302b63; /* Updated to match color theme */
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #413c69; /* Slightly lighter color */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #fff;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Screens */
+#start-screen,
+#game-over-screen,
+#difficulty-screen,
+#start-game-screen {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+}
+
+/* Difficulty Screen */
+#difficulty-screen {
+    display: none;
+}
+
+#difficulty-screen h2 {
+    margin-bottom: 20px;
+}
+
+/* Start Game Screen */
+#start-game-screen {
+    display: none;
+}
+
+/* Scoreboard */
+#scoreboard {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin: 20px 0;
+    text-shadow: 0 0 10px #fff;
+    position: relative;
+}
+
+#player1-score,
+#player2-score {
+    width: 50%;
+    animation: score-glow 1s infinite alternate;
+}
+
+@keyframes score-glow {
+    from {
+        text-shadow: 0 0 5px #fff;
+    }
+    to {
+        text-shadow: 0 0 15px #fff;
+    }
+}
+
+/* Game Canvas */
+#gameCanvas {
+    border: 2px solid #fff;
+    background-color: #000;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Mobile Controls */
+#mobile-controls {
+    display: none;
+    margin-top: 20px;
+}
+
+#mobile-controls button {
+    font-size: 2rem;
+    padding: 10px;
+    margin: 5px;
+    background-color: #302b63; /* Updated to match color theme */
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+#mobile-controls button:hover {
+    background-color: #413c69;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #fff;
+}
+
+#mobile-controls button:active {
+    background-color: #413c69;
+    transform: scale(0.95);
+}
+
+/* Game Over Screen */
+#game-over-screen {
+    display: none;
+}
+
+#game-over-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #fff;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content p {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Animations for Paddles and Ball */
+@keyframes paddle-glow {
+    0% { box-shadow: 0 0 10px #0ff; }
+    50% { box-shadow: 0 0 20px #0ff; }
+    100% { box-shadow: 0 0 10px #0ff; }
+}
+
+@keyframes ball-glow {
+    0% { box-shadow: 0 0 10px #ff0; }
+    50% { box-shadow: 0 0 20px #ff0; }
+    100% { box-shadow: 0 0 10px #ff0; }
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #ffdd00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ffe866;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+
+    #mobile-controls {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .left-controls,
+    .right-controls {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Adjust font size for mobile */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+    }
+
+    #scoreboard {
+        font-size: 1.5rem;
+    }
+
+    #game-over-screen h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Additional Mobile Styles */
+@media (max-width: 480px) {
+    button {
+        font-size: 0.7rem;
+        padding: 8px 16px;
+    }
+
+    #mobile-controls button {
+        font-size: 1.5rem;
+        padding: 8px;
+        margin: 3px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin-top: 30%;
+    }
+
+    footer p {
+        font-size: 0.7rem;
+    }
+}
