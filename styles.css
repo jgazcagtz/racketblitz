@@ -4,7 +4,7 @@ body {
     background: linear-gradient(45deg, #0f0c29, #302b63, #24243e); /* Original background */
     font-family: "Monoton", sans-serif;
     color: #fff;
-    text-align: center;swsw
+    text-align: center;
     overflow: hidden;
 }
 
@@ -15,12 +15,19 @@ body {
     padding: 20px;
     position: relative;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    height: 100vh; /* Ensure it takes full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Title */
 h1 {
     animation: glow 1s infinite alternate;
     font-size: 2rem;
     margin-top: 20px;
+    user-select: none; /* Prevent text selection */
 }
 
 /* Glow Animation for Title */
@@ -45,6 +52,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -ms-user-select: none; /* For IE10+/Edge */
 }
 
 button:hover {
@@ -64,9 +74,18 @@ button:active {
 #difficulty-screen,
 #start-game-screen {
     position: absolute;
-    top: 150px;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Difficulty Screen */
@@ -76,6 +95,7 @@ button:active {
 
 #difficulty-screen h2 {
     margin-bottom: 20px;
+    user-select: none;
 }
 
 /* Start Game Screen */
@@ -87,10 +107,11 @@ button:active {
 #scoreboard {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     font-size: 2rem;
     margin: 20px 0;
     text-shadow: 0 0 10px #fff;
-    position: relative;
+    user-select: none;
 }
 
 #player1-score,
@@ -115,6 +136,7 @@ button:active {
     box-shadow: 0 0 20px #fff;
     width: 100%;
     height: auto;
+    max-height: 70vh; /* Prevent canvas from exceeding viewport height */
 }
 
 /* Mobile Controls */
@@ -122,6 +144,8 @@ button:active {
     display: none;
     margin-top: 20px;
     justify-content: space-around;
+    width: 100%;
+    max-width: 400px;
 }
 
 .left-controls,
@@ -138,8 +162,11 @@ button:active {
     border: 2px solid #ffdd00; /* Contrasting border */
     color: #fff;
     border-radius: 5px;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Monoton", sans-serif;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -ms-user-select: none; /* For IE10+/Edge */
 }
 
 #mobile-controls button:hover {
@@ -161,6 +188,7 @@ button:active {
 #game-over-screen h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    user-select: none;
 }
 
 /* Modal */
@@ -178,10 +206,11 @@ button:active {
 
 .modal-content {
     background-color: #222;
-    margin: 15% auto;
+    margin: 50px auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-width: 600px;
     color: #fff;
     border-radius: 10px;
     position: relative;
@@ -195,6 +224,7 @@ button:active {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    user-select: none;
 }
 
 .close-btn:hover,
@@ -204,12 +234,14 @@ button:active {
 
 .modal-content h2 {
     margin-top: 0;
+    user-select: none;
 }
 
 .modal-content p {
     text-align: left;
     font-size: 1rem;
     line-height: 1.5;
+    user-select: none;
 }
 
 /* Animations for Paddles and Ball */
@@ -239,12 +271,14 @@ footer {
 footer p {
     margin: 5px 0;
     font-size: 0.8rem;
+    user-select: none;
 }
 
 footer a {
     color: #ffdd00;
     text-decoration: none;
     transition: color 0.3s;
+    user-select: none;
 }
 
 footer a:hover {
@@ -253,15 +287,44 @@ footer a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #gameCanvas {
-        width: 100%;
-        height: auto;
+    #game-container {
+        padding: 10px;
     }
 
-    /* Mobile controls are now handled via JavaScript */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+    }
+
+    #scoreboard {
+        font-size: 1.5rem;
+    }
+
+    #game-over-screen h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust canvas for smaller screens */
+    #gameCanvas {
+        max-height: 60vh;
+    }
 }
 
-/* Additional Mobile Styles */
+@media (orientation: portrait) and (max-width: 768px) {
+    #gameCanvas {
+        max-height: 50vh;
+    }
+
+    /* Adjust game container for portrait */
+    #game-container {
+        padding: 5px;
+    }
+}
+
 @media (max-width: 480px) {
     button {
         font-size: 0.7rem;
@@ -282,4 +345,21 @@ footer a:hover {
     footer p {
         font-size: 0.7rem;
     }
+}
+
+/* Prevent text selection on all buttons */
+button,
+#mobile-controls button,
+.close-btn {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+/* Ensure that buttons do not highlight on tap on mobile devices */
+button:focus,
+#mobile-controls button:focus,
+.close-btn:focus {
+    outline: none;
 }
