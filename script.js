@@ -45,6 +45,7 @@ const leftUpBtn = document.getElementById('left-up');
 const leftDownBtn = document.getElementById('left-down');
 const rightUpBtn = document.getElementById('right-up');
 const rightDownBtn = document.getElementById('right-down');
+const mobileControls = document.getElementById('mobile-controls');
 
 // DOM Elements
 const startScreen = document.getElementById('start-screen');
@@ -162,14 +163,28 @@ restartBtn.addEventListener('click', () => {
     gameOver = false;
     gameOverScreen.style.display = 'none';
     resetGame();
+    startBackgroundMusic(); // Start a new music track
 });
 
 // Start Background Music
 function startBackgroundMusic() {
+    if (backgroundMusic) {
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0;
+    }
     let randomIndex = Math.floor(Math.random() * musicFiles.length);
     backgroundMusic = new Audio(musicFiles[randomIndex]);
     backgroundMusic.loop = true;
     backgroundMusic.play();
+}
+
+// Detect Touch Device and Show Mobile Controls
+function isTouchDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints;
+}
+
+if (isTouchDevice()) {
+    mobileControls.style.display = 'flex';
 }
 
 // Draw Functions
@@ -423,9 +438,7 @@ function resetGame() {
     powerUps = [];
     particles = [];
     powerUpsSpawned = 0; // Reset the power-up counter
-    if (backgroundMusic) {
-        backgroundMusic.play();
-    }
+    // No need to play background music here
 }
 
 function moveEverything() {
