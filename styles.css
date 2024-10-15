@@ -6,16 +6,21 @@ body {
     color: #fff;
     text-align: center;
     overflow: hidden;
+    
+    /* Flexbox Layout */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Game Container */
 #game-container {
+    flex: 1; /* Takes up remaining space */
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    height: 100vh; /* Ensure it takes full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,8 +58,9 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     user-select: none; /* Prevent text selection */
-    -webkit-user-select: none; /* For Safari */
-    -ms-user-select: none; /* For IE10+/Edge */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
 }
 
 button:hover {
@@ -165,8 +171,9 @@ button:active {
     font-family: "Monoton", sans-serif;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     user-select: none; /* Prevent text selection */
-    -webkit-user-select: none; /* For Safari */
-    -ms-user-select: none; /* For IE10+/Edge */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
 }
 
 #mobile-controls button:hover {
