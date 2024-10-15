@@ -2,9 +2,9 @@
 body {
     margin: 0;
     background: linear-gradient(45deg, #0f0c29, #302b63, #24243e); /* Original background */
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Monoton", sans-serif;
     color: #fff;
-    text-align: center;
+    text-align: center;swsw
     overflow: hidden;
 }
 
@@ -35,12 +35,12 @@ h1 {
 
 /* Buttons */
 button {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Monoton", sans-serif;
     font-size: 1rem;
     padding: 15px 30px;
     margin: 10px;
     background-color: #302b63; /* Updated to match color theme */
-    border: none;
+    border: 2px solid #ffdd00; /* Contrasting border */
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -55,6 +55,7 @@ button:hover {
 
 button:active {
     transform: scale(0.95);
+    border-color: #ffe866; /* Slightly lighter border on active */
 }
 
 /* Screens */
@@ -134,7 +135,7 @@ button:active {
     padding: 10px;
     margin: 5px;
     background-color: #302b63; /* Updated to match color theme */
-    border: none;
+    border: 2px solid #ffdd00; /* Contrasting border */
     color: #fff;
     border-radius: 5px;
     font-family: 'Press Start 2P', cursive;
@@ -226,12 +227,13 @@ button:active {
 
 /* Footer */
 footer {
+    font-family: "Monoton", sans-serif;
     background-color: #111;
     color: #fff;
     padding: 10px 0;
     text-align: center;
-    position: relative;
-    margin-top: 20px;
+    margin-top: 20px; /* Adjusts footer position */
+    border-top: 2px solid #413c69; /* Adds a top border */
 }
 
 footer p {
